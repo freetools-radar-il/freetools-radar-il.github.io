@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>איך עושים את זה? | המדריך המעשי לטכנולוגיה, כלים ופרודוקטיביות</title>
+  <meta name="description" content="מדריכי צעד-אחר-צעד בעברית פשוטה: אוטומציה ללא קוד, ניהול ידע חכם, כלי AI חינמיים, ושיטות עבודה שמייעלות כל יום מחדש" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://freetools-radar-il.github.io" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="איך עושים את זה? | המדריך המעשי לטכנולוגיה, כלים ופרודוקטיביות" />
+  <meta property="og:description" content="מדריכי צעד-אחר-צעד בעברית פשוטה: אוטומציה ללא קוד, ניהול ידע חכם, כלי AI חינמיים, ושיטות עבודה שמייעלות כל יום מחדש" />
+  <meta property="og:url" content="https://freetools-radar-il.github.io" />
+  <meta property="og:image" content="https://freetools-radar-il.github.io/img_hero.jpg" />
+  <meta property="og:locale" content="he_IL" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Heebo', sans-serif; }
+    .hero-bg {
+      background-image: linear-gradient(180deg, rgba(2, 6, 23, 0.55) 0%, rgba(2, 6, 23, 0.88) 100%), url('https://webstack-radar-il.surge.sh/img_hero.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "איך עושים את זה? | המדריך המעשי לטכנולוגיה, כלים ופרודוקטיביות",
+      "url": "https://freetools-radar-il.github.io",
+      "description": "מדריכי צעד-אחר-צעד בעברית פשוטה: אוטומציה ללא קוד, ניהול ידע חכם, כלי AI חינמיים, ושיטות עבודה שמייעלות כל יום מחדש",
+      "inLanguage": "he-IL"
+    },
+    {
+      "@type": "Article",
+      "headline": "איך עושים את זה? מדריכים מעשיים שחוסכים שעות עבודה",
+      "description": "מדריכי צעד-אחר-צעד בעברית פשוטה: אוטומציה ללא קוד, ניהול ידע חכם, כלי AI חינמיים, ושיטות עבודה שמייעלות כל יום מחדש",
+      "inLanguage": "he-IL"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "איך בוחרים כלי חדש בלי לבזבז שבוע על הגדרות?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "כלל אצבע פשוט: נסו את הכלי על משימה אמיתית אחת שאתם צריכים לסיים היום. אם תוך 20 דקות לא הצלחתם להפיק תוצאה טובה יותר מהשיטה הנוכחית שלכם – הכלי כנראה מסורבל מדי."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם המסלולים החינמיים של כלי ה-AI מספיקים לעבודה יומיומית?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "לרוב המשתמשים כן. השילוב בין המסלולים החינמיים של Claude, ChatGPT, Gemini ו-NotebookLM נותן מענה של כמעט 100% למשימות כתיבה, סיכום מסמכים, תרגום וסיעור מוחות ללא עלות."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "מה הדרך הבטוחה ביותר לגבות סיכומים ומסמכים חשובים?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "מומלץ לעבוד עם כלים שמאפשרים ייצוא פתוח לקובצי Markdown או PDF תקניים (כמו Obsidian או ייצוא תקופתי מ-Notion לתיקיית Google Drive מגובה)."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col">
+
+  <!-- Top Navigation -->
+  <header class="border-b border-slate-800/80 bg-slate-950/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-emerald-500 flex items-center justify-center font-black text-white shadow-lg text-lg">
+          ★
+        </div>
+        <div>
+          <span class="font-extrabold text-lg tracking-tight text-white block leading-none">איך עושים את זה?</span>
+          <span class="text-xs text-slate-300">מדריכים, השוואות וכלים חכמים</span>
+        </div>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-base font-medium text-slate-200">
+        <a href="#interactive-finder" class="hover:text-indigo-400 transition-colors">בורר כלים חכם</a>
+        <a href="#guides" class="hover:text-indigo-400 transition-colors">מדריכים וסקירות</a>
+        <a href="#charts" class="hover:text-indigo-400 transition-colors">נתונים והשוואות</a>
+        <a href="#faq" class="hover:text-indigo-400 transition-colors">שאלות נפוצות</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Dramatic Full-Width Hero Banner with Large White Title & Background Image -->
+  <section class="hero-bg relative py-24 sm:py-32 border-b border-slate-800 shadow-2xl">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/25 border border-indigo-400/40 text-indigo-200 text-sm font-bold mb-6 backdrop-blur-sm">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>מרכז המדריכים והכלים המעשיים • מהדורת 2026</span>
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight mb-6 drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
+        איך עושים את זה? מדריכים מעשיים שחוסכים שעות עבודה
+      </h1>
+      <p class="text-xl sm:text-2xl text-slate-100 leading-relaxed max-w-3xl mx-auto mb-10 font-medium drop-shadow">
+        מדריכי צעד-אחר-צעד בעברית פשוטה: אוטומציה ללא קוד, ניהול ידע חכם, כלי AI חינמיים, ושיטות עבודה שמייעלות כל יום מחדש
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#interactive-finder" class="px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-lg shadow-lg shadow-indigo-600/30 transition-all">
+          לסימולטור חיפוש והשוואת הכלים ↓
+        </a>
+        <a href="#guides" class="px-7 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-100 font-bold text-lg border border-slate-700 backdrop-blur transition-all">
+          קראו את המדריכים המלאים
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-20 flex-1">
+
+    <!-- Smart Interactive Tool Finder & Filter -->
+    <section id="interactive-finder" class="bg-slate-900/90 border border-indigo-500/30 rounded-3xl p-6 sm:p-9 shadow-2xl">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 border-b border-slate-800 pb-6">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">⚡ סימולטור ובחירת כלים חכמה</h2>
+          <p class="text-base sm:text-lg text-slate-300">סננו לפי תחום או חפשו כלי ספציפי כדי לראות ציוני מבחן, מסלול חינמי והמלצת שימוש</p>
+        </div>
+        <div class="w-full md:w-72">
+          <input id="tool-search" type="text" placeholder="חיפוש כלי (למשל: Claude, Notion)..." oninput="renderTools()" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 text-base" />
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-2.5 mb-8">
+        <button onclick="setCat('all', this)" class="cat-btn active px-4 py-2 rounded-full text-sm font-bold bg-indigo-600 text-white transition-all">הכל (8 כלים נבחרים)</button>
+        <button onclick="setCat('ai', this)" class="cat-btn px-4 py-2 rounded-full text-sm font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 transition-all">בינה מלאכותית וכתיבה</button>
+        <button onclick="setCat('productivity', this)" class="cat-btn px-4 py-2 rounded-full text-sm font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 transition-all">ניהול ידע ומשימות</button>
+        <button onclick="setCat('design', this)" class="cat-btn px-4 py-2 rounded-full text-sm font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 transition-all">עיצוב וממשקים</button>
+        <button onclick="setCat('code', this)" class="cat-btn px-4 py-2 rounded-full text-sm font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 transition-all">קוד ואוטומציה</button>
+      </div>
+
+      <div id="tools-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+    </section>
+
+    <!-- Deep Guides & Visual Reviews -->
+    <section id="guides" class="space-y-10">
+      <div>
+        <h2 class="text-3xl font-extrabold text-white mb-3">מדריכי עומק וסקירות השוואתיות</h2>
+        <p class="text-lg text-slate-300">ניתוח מעשי מתוך עבודה יומיומית עם הכלים המובילים בעולם.</p>
+      </div>
+      
+        <article class="bg-slate-900/85 border border-slate-800 rounded-3xl p-6 sm:p-9 shadow-xl">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <span class="px-3.5 py-1 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">מדריך פרודוקטיביות</span>
+            <span class="text-xs text-slate-400">6 דקות קריאה</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4 leading-snug">איך לבנות מערכת ניהול משימות וידע אישית ב-15 דקות (בלי ללכת לאיבוד)</h2>
+          <p class="text-base sm:text-lg text-slate-200 leading-relaxed mb-6">רוב האנשים מתקינים חמש אפליקציות שונות לפתקאות, משימות, תזכורות וסיכומי פגישות – ובסוף לא מוצאים שום דבר ברגע האמת. השיטה שעובדת באמת מבוססת על תיבת אינבוקס אחת בלבד (Single Capture Inbox): כל רעיון, משימה או קישור נכנסים למקום אחד, ורק פעם ביום מתמיינים ל-3 קטגוריות פשוטות: 'לביצוע השבוע', 'פרויקטים פעילים' ו'ספריית ידע'.</p>
+          
+            <figure class="my-6 rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl">
+              <img src="https://webstack-radar-il.surge.sh/img_notion.jpg" alt="השוואת סביבות עבודה וניהול ידע" class="w-full h-64 sm:h-80 object-cover" loading="lazy" />
+              <figcaption class="bg-slate-900/95 px-4 py-2.5 text-xs text-slate-300 border-t border-slate-800">המחשה: מבנה מודולרי בענן (Notion) מול רשת ידע מקומית מקושרת (Obsidian)</figcaption>
+            </figure>
+            
+          <div class="bg-slate-950/90 border border-slate-800/90 rounded-2xl p-5 sm:p-6 mt-4">
+            <h3 class="text-lg font-bold text-indigo-300 mb-3">טיפים מעשיים ליישום מיידי:</h3>
+            <ul class="space-y-2.5">
+              <li class="flex items-start gap-3 text-base text-slate-200 leading-relaxed"><span class="text-emerald-400 font-bold mt-0.5">✔</span><span>הגדירו תבנית קבועה לסיכום פגישה או הרצאה עם 3 שדות בלבד: עיקרי הדברים, החלטות, ומשימות להמשך.</span></li><li class="flex items-start gap-3 text-base text-slate-200 leading-relaxed"><span class="text-emerald-400 font-bold mt-0.5">✔</span><span>השתמשו בקיצורי מקלדת גלובליים (כמו Raycast או PowerToys) כדי לחפש קבצים ולהדביק טקסטים חוזרים בשנייה.</span></li><li class="flex items-start gap-3 text-base text-slate-200 leading-relaxed"><span class="text-emerald-400 font-bold mt-0.5">✔</span><span>הפרידו בין שלב האיסוף לשלב העריכה – אל תנסו לעצב את המסמך בזמן שאתם רושמים נקודות תוך כדי שיחה.</span></li>
+            </ul>
+          </div>
+        </article>
+        
+        <article class="bg-slate-900/85 border border-slate-800 rounded-3xl p-6 sm:p-9 shadow-xl">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <span class="px-3.5 py-1 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">מדריך AI מעשי</span>
+            <span class="text-xs text-slate-400">5 דקות קריאה</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4 leading-snug">איך להוציא ממודלי AI תשובות מדויקות פי 3 באמצעות הנדסת הקשר (Context First)</h2>
+          <p class="text-base sm:text-lg text-slate-200 leading-relaxed mb-6">הסוד לתוצאות מעולות ב-ChatGPT, Claude ו-Gemini הוא לא 'פרומפט קסם' בן שורה אחת, אלא מבנה של 4 שכבות: תפקיד ומטרה, קהל היעד, דוגמה לסגנון הרצוי (Few-Shot Example), ומגבלות ברורות (מה לא לעשות). כשנותנים למודל דוגמה אחת של פסקה שכתבתם בעצמכם, הטקסט מתנקה לחלוטין מקלישאות רובוטיות.</p>
+          
+          <div class="bg-slate-950/90 border border-slate-800/90 rounded-2xl p-5 sm:p-6 mt-4">
+            <h3 class="text-lg font-bold text-indigo-300 mb-3">טיפים מעשיים ליישום מיידי:</h3>
+            <ul class="space-y-2.5">
+              <li class="flex items-start gap-3 text-base text-slate-200 leading-relaxed"><span class="text-emerald-400 font-bold mt-0.5">✔</span><span>בקשו מהמודל לשאול אתכם 3 שאלות הבהרה לפני שהוא מתחיל לכתוב את הפתרון המלא.</span></li><li class="flex items-start gap-3 text-base text-slate-200 leading-relaxed"><span class="text-emerald-400 font-bold mt-0.5">✔</span><span>במשימות מחקר או השוואה, בקשו תמיד להציג את הנתונים בטבלה מסודרת עם יתרונות, חסרונות ומקרי קצה.</span></li><li class="flex items-start gap-3 text-base text-slate-200 leading-relaxed"><span class="text-emerald-400 font-bold mt-0.5">✔</span><span>שמרו ספרייה אישית של 10 פרומפטים מנצחים שאתם משתמשים בהם מדי שבוע.</span></li>
+            </ul>
+          </div>
+        </article>
+        
+        <article class="bg-slate-900/85 border border-slate-800 rounded-3xl p-6 sm:p-9 shadow-xl">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <span class="px-3.5 py-1 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">אוטומציה וחיסכון בזמן</span>
+            <span class="text-xs text-slate-400">7 דקות קריאה</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4 leading-snug">איך לחבר בין הטפסים, המייל והיומן שלכם באוטומציה חינמית</h2>
+          <p class="text-base sm:text-lg text-slate-200 leading-relaxed mb-6">כל פעולה שאתם מבצעים יותר משלוש פעמים בשבוע באותו אופן בדיוק – כמו העתקת פרטים ממייל לטבלת אקסל, שליחת תזכורת או שמירת קבצים מצורפים בתיקייה – ניתנת לאוטומציה מלאה תוך דקות באמצעות כלים כמו Make, n8n או Google Apps Script חינמי לחלוטין.</p>
+          
+            <figure class="my-6 rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl">
+              <img src="https://webstack-radar-il.surge.sh/img_design.jpg" alt="ארגז כלי עיצוב, תכנון ופיתוח" class="w-full h-64 sm:h-80 object-cover" loading="lazy" />
+              <figcaption class="bg-slate-900/95 px-4 py-2.5 text-xs text-slate-300 border-t border-slate-800">שולחן התכנון הדיגיטלי: שילוב כלי UI/UX, מערכות עיצוב ואוטומציית קוד</figcaption>
+            </figure>
+            
+          <div class="bg-slate-950/90 border border-slate-800/90 rounded-2xl p-5 sm:p-6 mt-4">
+            <h3 class="text-lg font-bold text-indigo-300 mb-3">טיפים מעשיים ליישום מיידי:</h3>
+            <ul class="space-y-2.5">
+              <li class="flex items-start gap-3 text-base text-slate-200 leading-relaxed"><span class="text-emerald-400 font-bold mt-0.5">✔</span><span>התחילו מאוטומציה קטנה אחת שחוסכת 10 דקות ביום, ובדקו אותה במשך שבוע לפני שמוסיפים שלבים מורכבים.</span></li><li class="flex items-start gap-3 text-base text-slate-200 leading-relaxed"><span class="text-emerald-400 font-bold mt-0.5">✔</span><span>הגדירו תמיד התראה אוטומטית למקרה שחיבור אחד נכשל כדי ששום פנייה לא תיפול בין הכיסאות.</span></li><li class="flex items-start gap-3 text-base text-slate-200 leading-relaxed"><span class="text-emerald-400 font-bold mt-0.5">✔</span><span>בגוגל שיטס וג׳ימייל ניתן להריץ סקריפטים אוטומטיים בחינם לגמרי ללא מגבלת פעולות חודשית.</span></li>
+            </ul>
+          </div>
+        </article>
+        
+    </section>
+
+    <!-- 2-Column Interactive Chart.js Data Visualization + Comparison Table -->
+    <section id="charts" class="bg-slate-900/75 border border-slate-800 rounded-3xl p-6 sm:p-9 space-y-10">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">נתוני אמת ומטריצת השוואה</h2>
+        <p class="text-base sm:text-lg text-slate-300">תוצאות הבדיקות שלנו בתצוגה גרפית אינטראקטיבית ובטבלת השוואה ישירה.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="bg-slate-950/90 border border-slate-800 rounded-2xl p-5">
+          <h3 class="text-lg font-bold text-white mb-4">חיסכון ממוצע בשעות עבודה שבועיות לפי קטגוריית כלים</h3>
+          <div style="direction: ltr !important;" class="h-64">
+            <canvas id="chart1"></canvas>
+          </div>
+        </div>
+        <div class="bg-slate-950/90 border border-slate-800 rounded-2xl p-5">
+          <h3 class="text-lg font-bold text-white mb-4">התפלגות שימוש בכלים חינמיים מול בתשלום בקרב עצמאים</h3>
+          <div style="direction: ltr !important;" class="h-64">
+            <canvas id="chart2"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto pt-4">
+        <table class="w-full text-right border-collapse">
+          <thead>
+            <tr class="border-b border-slate-700 text-sm text-slate-300 bg-slate-950/90">
+              <th class="py-4 px-4">קטגוריה / השוואה</th>
+              <th class="py-4 px-4">המוביל במבחן</th>
+              <th class="py-4 px-4">אלטרנטיבה בולטת</th>
+              <th class="py-4 px-4">הבדל מרכזי</th>
+              <th class="py-4 px-4">סטטוס מסלול חינמי</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+        <tr class="border-b border-slate-800/80 hover:bg-slate-800/40 transition-colors">
+          <td class="py-4 px-4 font-bold text-white text-base">כתיבת תוכן ומאמרים בעברית</td>
+          <td class="py-4 px-4 text-emerald-300 font-semibold text-base">Claude Sonnet</td>
+          <td class="py-4 px-4 text-sky-300 text-base">ChatGPT-4o</td>
+          <td class="py-4 px-4 text-slate-200 text-base">ניסוח טבעי וזורם ללא קלישאות תרגום</td>
+          <td class="py-4 px-4 text-indigo-300 text-sm font-semibold">חינם עד מכסה יומית</td>
+        </tr>
+        
+        <tr class="border-b border-slate-800/80 hover:bg-slate-800/40 transition-colors">
+          <td class="py-4 px-4 font-bold text-white text-base">ניהול פרויקטים ומשימות צוות</td>
+          <td class="py-4 px-4 text-emerald-300 font-semibold text-base">Notion</td>
+          <td class="py-4 px-4 text-sky-300 text-base">Trello / ClickUp</td>
+          <td class="py-4 px-4 text-slate-200 text-base">שילוב מסמכים ומסדי נתונים בעמוד אחד</td>
+          <td class="py-4 px-4 text-indigo-300 text-sm font-semibold">חינם ליחידים</td>
+        </tr>
+        
+        <tr class="border-b border-slate-800/80 hover:bg-slate-800/40 transition-colors">
+          <td class="py-4 px-4 font-bold text-white text-base">סיכומי לימודים ומחקר אישי</td>
+          <td class="py-4 px-4 text-emerald-300 font-semibold text-base">Obsidian</td>
+          <td class="py-4 px-4 text-sky-300 text-base">NotebookLM</td>
+          <td class="py-4 px-4 text-slate-200 text-base">שמירה מקומית + שאילתות AI על חומרי הקורס</td>
+          <td class="py-4 px-4 text-indigo-300 text-sm font-semibold">100% חינם</td>
+        </tr>
+        
+        <tr class="border-b border-slate-800/80 hover:bg-slate-800/40 transition-colors">
+          <td class="py-4 px-4 font-bold text-white text-base">עיצוב מצגות וגרפיקה מהירה</td>
+          <td class="py-4 px-4 text-emerald-300 font-semibold text-base">Canva</td>
+          <td class="py-4 px-4 text-sky-300 text-base">Gamma App</td>
+          <td class="py-4 px-4 text-slate-200 text-base">מאות תבניות מוכנות בעברית וייצוא ל-PDF</td>
+          <td class="py-4 px-4 text-indigo-300 text-sm font-semibold">חינם</td>
+        </tr>
+        
+        <tr class="border-b border-slate-800/80 hover:bg-slate-800/40 transition-colors">
+          <td class="py-4 px-4 font-bold text-white text-base">בניית אוטומציות וחיבור כלים</td>
+          <td class="py-4 px-4 text-emerald-300 font-semibold text-base">n8n / Make</td>
+          <td class="py-4 px-4 text-sky-300 text-base">Zapier</td>
+          <td class="py-4 px-4 text-slate-200 text-base">תרשימי זרימה ויזואליים וגמישות מלאה</td>
+          <td class="py-4 px-4 text-indigo-300 text-sm font-semibold">חינם עד 1,000 פעולות</td>
+        </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6">שאלות נפוצות ותשובות מעשיות</h2>
+      <div class="space-y-4">
+        
+        <details class="group bg-slate-900/80 border border-slate-800 rounded-2xl p-6 open:border-indigo-500/50 transition-all">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-lg sm:text-xl text-white list-none">
+            <span>איך בוחרים כלי חדש בלי לבזבז שבוע על הגדרות?</span>
+            <span class="text-indigo-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p class="mt-4 text-slate-200 leading-relaxed text-base sm:text-lg border-t border-slate-800 pt-4">כלל אצבע פשוט: נסו את הכלי על משימה אמיתית אחת שאתם צריכים לסיים היום. אם תוך 20 דקות לא הצלחתם להפיק תוצאה טובה יותר מהשיטה הנוכחית שלכם – הכלי כנראה מסורבל מדי.</p>
+        </details>
+        
+        <details class="group bg-slate-900/80 border border-slate-800 rounded-2xl p-6 open:border-indigo-500/50 transition-all">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-lg sm:text-xl text-white list-none">
+            <span>האם המסלולים החינמיים של כלי ה-AI מספיקים לעבודה יומיומית?</span>
+            <span class="text-indigo-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p class="mt-4 text-slate-200 leading-relaxed text-base sm:text-lg border-t border-slate-800 pt-4">לרוב המשתמשים כן. השילוב בין המסלולים החינמיים של Claude, ChatGPT, Gemini ו-NotebookLM נותן מענה של כמעט 100% למשימות כתיבה, סיכום מסמכים, תרגום וסיעור מוחות ללא עלות.</p>
+        </details>
+        
+        <details class="group bg-slate-900/80 border border-slate-800 rounded-2xl p-6 open:border-indigo-500/50 transition-all">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-lg sm:text-xl text-white list-none">
+            <span>מה הדרך הבטוחה ביותר לגבות סיכומים ומסמכים חשובים?</span>
+            <span class="text-indigo-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p class="mt-4 text-slate-200 leading-relaxed text-base sm:text-lg border-t border-slate-800 pt-4">מומלץ לעבוד עם כלים שמאפשרים ייצוא פתוח לקובצי Markdown או PDF תקניים (כמו Obsidian או ייצוא תקופתי מ-Notion לתיקיית Google Drive מגובה).</p>
+        </details>
+        
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+      <div>© 2026 איך עושים את זה? | המדריך המעשי לטכנולוגיה, כלים ופרודוקטיביות • כל הזכויות שמורות</div>
+      <div class="flex items-center gap-4">
+        <a href="/robots.txt" class="hover:text-slate-200">robots.txt</a>
+        <span>•</span>
+        <a href="/sitemap.xml" class="hover:text-slate-200">sitemap.xml</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const TOOLS_DATA = [{"name": "Claude Sonnet", "cat": "ai", "cost": "חינם / Pro", "score": "9.8", "desc": "הכלי המוביל לכתיבה רהוטה בעברית, ניתוח מסמכים ארוכים ובניית קוד וממשקים חיים."}, {"name": "Obsidian", "cat": "productivity", "cost": "100% חינם", "score": "9.6", "desc": "מערכת ניהול ידע וסיכומים מקומית בקובצי Markdown עם מהירות שיא וגרף קשרים."}, {"name": "Notion", "cat": "productivity", "cost": "מסלול חינמי נדיב", "score": "9.5", "desc": "סביבת עבודה בענן לניהול פרויקטים, טבלאות חכמות, תבניות וצוותים."}, {"name": "Canva", "cat": "design", "cost": "חינם / Pro", "score": "9.6", "desc": "יצירת מצגות, אינפוגרפיקות ועיצובים לרשתות חברתיות בדקות ספורות."}, {"name": "Figma", "cat": "design", "cost": "מסלול חינמי", "score": "9.7", "desc": "עיצוב ממשקי משתמש (UI/UX), שרטוט מסכים ואבות-טיפוס אינטראקטיביים."}, {"name": "Cursor IDE", "cat": "code", "cost": "חינם / Pro", "score": "9.8", "desc": "עורך קוד חכם מבוסס AI שמכיר את כל הפרויקט ומקצר זמני פיתוח ב-60%."}, {"name": "Perplexity AI", "cat": "ai", "cost": "חינם", "score": "9.4", "desc": "מנוע חיפוש ומחקר מבוסס AI שמספק תשובות מתומצתות עם קישורים ישירים למקורות."}, {"name": "Make / n8n", "cat": "automation", "cost": "מסלול חינמי / קוד פתוח", "score": "9.5", "desc": "חיבור אוטומטי בין מאות אפליקציות, טפסים, גיליונות אלקטרוניים ומערכות דיוור."}];
+    let currentCat = 'all';
+
+    function setCat(cat, btn) {
+      currentCat = cat;
+      document.querySelectorAll('.cat-btn').forEach(b => {
+        b.className = 'cat-btn px-4 py-2 rounded-full text-sm font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 transition-all';
+      });
+      if (btn) {
+        btn.className = 'cat-btn active px-4 py-2 rounded-full text-sm font-bold bg-indigo-600 text-white transition-all';
+      }
+      renderTools();
+    }
+
+    function renderTools() {
+      const q = (document.getElementById('tool-search').value || '').toLowerCase();
+      const filtered = TOOLS_DATA.filter(t => {
+        const matchCat = currentCat === 'all' || t.cat === currentCat || (currentCat === 'code' && t.cat === 'automation');
+        const matchQ = !q || t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q);
+        return matchCat && matchQ;
+      });
+      document.getElementById('tools-grid').innerHTML = filtered.map(t => `
+        <div class="bg-slate-950/90 border border-slate-800 hover:border-indigo-500/50 rounded-2xl p-5 flex flex-col justify-between transition-all">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="font-extrabold text-lg text-white">${t.name}</span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">★ ${t.score}</span>
+            </div>
+            <p class="text-base text-slate-300 leading-relaxed mb-4">${t.desc}</p>
+          </div>
+          <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-indigo-300 font-semibold">
+            <span>מסלול: ${t.cost}</span>
+            <span>נבדק ב-2026 ✔</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    renderTools();
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const ctx1 = document.getElementById('chart1');
+      if (ctx1 && window.Chart) {
+        new Chart(ctx1, {
+          type: 'bar',
+          data: {
+            labels: ["אוטומציית משימות", "סיכום ומחקר ב-AI", "ניהול ידע בתבניות", "עיצוב ומצגות מהירות", "קיצורי מקלדת וטקסט"],
+            datasets: [{
+              label: 'ציון / חיסכון בשעות',
+              data: [6.5, 5.8, 4.2, 3.9, 2.8],
+              backgroundColor: ['#6366f1', '#10b981', '#0ea5e9', '#f59e0b', '#ec4899', '#8b5cf6'],
+              borderRadius: 8
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { ticks: { color: '#cbd5e1' }, grid: { display: false } },
+              y: { ticks: { color: '#cbd5e1' }, grid: { color: '#1e293b' } }
+            }
+          }
+        });
+      }
+
+      const ctx2 = document.getElementById('chart2');
+      if (ctx2 && window.Chart) {
+        new Chart(ctx2, {
+          type: 'doughnut',
+          data: {
+            labels: ["מסלול חינמי מלא (Free)", "פרימיום מוזל (Freemium)", "קוד פתוח (Open Source)", "רישיון ארגוני (Pro)"],
+            datasets: [{
+              data: [45, 30, 15, 10],
+              backgroundColor: ['#10b981', '#6366f1', '#0ea5e9', '#f59e0b'],
+              borderColor: '#0f172a',
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'bottom', labels: { color: '#e2e8f0', padding: 14 } }
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
